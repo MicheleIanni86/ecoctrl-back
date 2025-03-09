@@ -5,78 +5,86 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-W
 
 $filename = "messages.json";
 
-// **Se il file JSON non esiste, crealo vuoto**
 if (!file_exists($filename)) {
     file_put_contents($filename, json_encode([]));
 }
 
-// **Leggi i messaggi dal file JSON**
 $messages = json_decode(file_get_contents($filename), true);
 
-// **Gestione delle richieste POST (aggiunta di un messaggio)**
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $inputJSON = file_get_contents("php://input");
-    $data = json_decode($inputJSON, true);
+// **Forziamo la risposta JSON se viene passato ?json=true nella URL**
+if (isset($_GET['json']) || $_SERVER['REQUEST_METHOD'] !== 'GET') {
+    header("Content-Type: application/json");
 
-    if (!isset($data['user']) || !isset($data['message'])) {
-        echo json_encode(["success" => false, "message" => "Dati non validi"]);
+    if ($_SERVER['REQUEST_METHOD'] == "GET") {
+        echo json_encode(["success" => true, "messages" => $messages]);
         exit();
     }
 
-    $newMessage = [
-        "id" => count($messages) > 0 ? max(array_column($messages, 'id')) + 1 : 1,
-        "user" => $data['user'],
-        "message" => $data['message'],
-        "timestamp" => date('Y-m-d H:i:s')
-    ];
+    // **POST - Aggiunge un nuovo messaggio**
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        $data = json_decode(file_get_contents("php://input"), true);
 
-    $messages[] = $newMessage;
-    file_put_contents($filename, json_encode($messages, JSON_PRETTY_PRINT));
-
-    echo json_encode(["success" => true, "message" => "Messaggio salvato"]);
-    exit();
-}
-
-// **Gestione delle richieste DELETE (eliminazione di un messaggio)**
-if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
-    $inputJSON = file_get_contents("php://input");
-    $data = json_decode($inputJSON, true);
-
-    if (!isset($data['id'])) {
-        echo json_encode(["success" => false, "message" => "ID non valido"]);
-        exit();
-    }
-
-    $messages = array_filter($messages, fn($msg) => $msg['id'] != $data['id']);
-    file_put_contents($filename, json_encode(array_values($messages), JSON_PRETTY_PRINT));
-
-    echo json_encode(["success" => true, "message" => "Messaggio eliminato"]);
-    exit();
-}
-
-// **Gestione delle richieste PUT (modifica di un messaggio)**
-if ($_SERVER['REQUEST_METHOD'] == "PUT") {
-    $inputJSON = file_get_contents("php://input");
-    $data = json_decode($inputJSON, true);
-
-    if (!isset($data['id']) || !isset($data['message'])) {
-        echo json_encode(["success" => false, "message" => "Dati non validi"]);
-        exit();
-    }
-
-    foreach ($messages as &$msg) {
-        if ($msg['id'] == $data['id']) {
-            $msg['message'] = $data['message'];
-            break;
+        if (!isset($data['user']) || !isset($data['message'])) {
+            echo json_encode(["success" => false, "message" => "Dati non validi"]);
+            exit();
         }
+
+        $newMessage = [
+            "id" => count($messages) > 0 ? max(array_column($messages, 'id')) + 1 : 1,
+            "user" => htmlspecialchars($data['user']),
+            "message" => htmlspecialchars($data['message']),
+            "timestamp" => date('Y-m-d H:i:s')
+        ];
+
+        $messages[] = $newMessage;
+        file_put_contents($filename, json_encode($messages, JSON_PRETTY_PRINT));
+
+        echo json_encode(["success" => true]);
+        exit();
     }
 
-    file_put_contents($filename, json_encode($messages, JSON_PRETTY_PRINT));
-    echo json_encode(["success" => true, "message" => "Messaggio modificato"]);
+    // **DELETE - Elimina un messaggio**
+    if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        if (!isset($data['id'])) {
+            echo json_encode(["success" => false, "message" => "ID non valido"]);
+            exit();
+        }
+
+        $messages = array_values(array_filter($messages, fn($msg) => $msg['id'] != $data['id']));
+        file_put_contents($filename, json_encode($messages, JSON_PRETTY_PRINT));
+
+        echo json_encode(["success" => true]);
+        exit();
+    }
+
+    // **PUT - Modifica un messaggio**
+    if ($_SERVER['REQUEST_METHOD'] == "PUT") {
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        if (!isset($data['id']) || !isset($data['message'])) {
+            echo json_encode(["success" => false, "message" => "Dati non validi"]);
+            exit();
+        }
+
+        foreach ($messages as &$msg) {
+            if ($msg['id'] == $data['id']) {
+                $msg['message'] = htmlspecialchars($data['message']);
+                break;
+            }
+        }
+
+        file_put_contents($filename, json_encode($messages, JSON_PRETTY_PRINT));
+        echo json_encode(["success" => true]);
+        exit();
+    }
+
+    echo json_encode(["success" => false, "message" => "Metodo non supportato"]);
     exit();
 }
 
-// **Se la richiesta è GET, mostra la tabella HTML**
+// **Se la pagina viene aperta dal browser, mostra la tabella HTML**
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -100,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == "PUT") {
                         <th>Data</th>
                     </tr>
                 </thead>
-                <tbody id="messagesTableBody">
+                <tbody>
                     <?php if (!empty($messages)) : ?>
                         <?php foreach ($messages as $msg) : ?>
                             <tr>
