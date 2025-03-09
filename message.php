@@ -11,8 +11,8 @@ if (!file_exists($filename)) {
 
 $messages = json_decode(file_get_contents($filename), true);
 
-// **Forziamo la risposta JSON se viene passato ?json=true nella URL**
-if (isset($_GET['json']) || $_SERVER['REQUEST_METHOD'] !== 'GET') {
+// **Forziamo sempre JSON per richieste AJAX o metodi diversi da GET**
+if ($_SERVER['REQUEST_METHOD'] !== 'GET' || isset($_GET['json'])) {
     header("Content-Type: application/json");
 
     if ($_SERVER['REQUEST_METHOD'] == "GET") {
@@ -20,7 +20,6 @@ if (isset($_GET['json']) || $_SERVER['REQUEST_METHOD'] !== 'GET') {
         exit();
     }
 
-    // **POST - Aggiunge un nuovo messaggio**
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $data = json_decode(file_get_contents("php://input"), true);
 
@@ -43,7 +42,6 @@ if (isset($_GET['json']) || $_SERVER['REQUEST_METHOD'] !== 'GET') {
         exit();
     }
 
-    // **DELETE - Elimina un messaggio**
     if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
         $data = json_decode(file_get_contents("php://input"), true);
 
@@ -59,7 +57,6 @@ if (isset($_GET['json']) || $_SERVER['REQUEST_METHOD'] !== 'GET') {
         exit();
     }
 
-    // **PUT - Modifica un messaggio**
     if ($_SERVER['REQUEST_METHOD'] == "PUT") {
         $data = json_decode(file_get_contents("php://input"), true);
 
@@ -84,7 +81,7 @@ if (isset($_GET['json']) || $_SERVER['REQUEST_METHOD'] !== 'GET') {
     exit();
 }
 
-// **Se la pagina viene aperta dal browser, mostra la tabella HTML**
+// **Se la richiesta è GET senza JSON, mostriamo la tabella HTML**
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -106,6 +103,7 @@ if (isset($_GET['json']) || $_SERVER['REQUEST_METHOD'] !== 'GET') {
                         <th>Utente</th>
                         <th>Messaggio</th>
                         <th>Data</th>
+                        <th>Azioni</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -114,13 +112,17 @@ if (isset($_GET['json']) || $_SERVER['REQUEST_METHOD'] !== 'GET') {
                             <tr>
                                 <td><?= htmlspecialchars($msg['id']) ?></td>
                                 <td><?= htmlspecialchars($msg['user']) ?></td>
-                                <td class="text-start"><?= nl2br(htmlspecialchars($msg['message'])) ?></td>
+                                <td class="text-start"><?= nl2br(htmlspecialchars(substr($msg['message'], 0, 50))) ?>...</td>
                                 <td><?= htmlspecialchars($msg['timestamp']) ?></td>
+                                <td>
+                                    <button class="btn btn-info btn-sm" onclick="showMessage('<?= htmlspecialchars(addslashes($msg['message'])) ?>')">Visualizza</button>
+                                    <button class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $msg['id'] ?>)">Elimina</button>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     <?php else : ?>
                         <tr>
-                            <td colspan="4" class="text-center text-muted">Nessuna segnalazione presente</td>
+                            <td colspan="5" class="text-center text-muted">Nessuna segnalazione presente</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>
@@ -131,5 +133,54 @@ if (isset($_GET['json']) || $_SERVER['REQUEST_METHOD'] !== 'GET') {
             <a href="index.html" class="btn btn-warning">Torna alla Home</a>
         </div>
     </div>
+
+
+    <script>
+    function showMessage(message) {
+        document.getElementById("modalMessage").textContent = message;
+        new bootstrap.Modal(document.getElementById("messageModal")).show();
+    }
+
+    function confirmDelete(messageId) {
+        if (confirm("Sei sicuro di voler eliminare questo messaggio?")) {
+            fetch("http://localhost/ecoctrl-back/message.php", {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id: messageId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Messaggio eliminato con successo!");
+                    location.reload();
+                } else {
+                    alert("Errore nell'eliminazione!");
+                }
+            })
+            .catch(error => console.error("Errore eliminazione:", error));
+        }
+    }
+</script>
+
+<!-- **MODAL per Visualizzare Messaggi** -->
+<div class="modal fade" id="messageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Dettaglio Messaggio</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
