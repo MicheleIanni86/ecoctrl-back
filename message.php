@@ -184,3 +184,41 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET' || isset($_GET['json'])) {
 
 </body>
 </html>
+
+
+
+
+<!-- CREATE TABLE users(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    surname VARCHAR(255) NOT NULL,
+    mail VARCHAR(255) NOT NULL,
+    pass VARCHAR(255) NOT NULL,
+    role ENUM ('SuperAdmin', 'Admin', 'Client') DEFAULT 'Client'
+    );
+    
+    CREATE TABLE ticketCategories(
+        id BIGINT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        description VARCHAR(255) NOT NULL
+    );
+    
+    CREATE TABLE ticket(
+        id BIGINT AUTO_INCREMENT PRIMARY KEY,
+        ticketDate TIMESTAMP,
+        description VARCHAR(255) NOT NULL,
+        user_id BIGINT,
+        ticketCat_id BIGINT, 
+        FOREIGN KEY(user_id) REFERENCES users(id),
+        FOREIGN KEY(ticketCat_id) REFERENCES ticketCategories(id)
+    );
+    
+    CREATE TABLE messages(
+        id BIGINT AUTO_INCREMENT PRIMARY KEY,
+        messageDate TIMESTAMP,
+        messageText VARCHAR(255) NOT NULL,
+        user_id BIGINT,
+        ticket_id BIGINT,
+        FOREIGN KEY(user_id) REFERENCES users(id),
+        FOREIGN KEY(ticket_id) REFERENCES tickets(id)
+   ); -->
