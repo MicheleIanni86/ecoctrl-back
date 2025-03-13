@@ -5,7 +5,7 @@
 $host = "localhost";       
 $db   = "ticket_manager";  
 $user = "root";           
-$pass = "";           
+$pass = "root";           
 $charset = "utf8mb4";
 
 // Connessione tramite PDO

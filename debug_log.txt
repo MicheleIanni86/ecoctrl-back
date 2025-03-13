@@ -356,3 +356,19 @@ RAW JSON: {"action":"login","email":"michele@gmail.com","password":"prova123"}
 LOGIN: Email: michele@gmail.com - Password: prova123
 LOGIN VERIFICA: {"id":1,"password":"prova123","role":"Admin"}
 LOGIN RIUSCITO: {"id":1,"password":"prova123","role":"Admin"}
+METODO: POST
+DATI GREZZI: {"action":"register","email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
+DECODED JSON: {"action":"register","email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
+AZIONE RICEVUTA: 'register'
+RAW JSON: {"action":"register","email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
+METODO: POST
+DATI GREZZI: {"action":"register","email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
+DECODED JSON: {"action":"register","email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
+AZIONE RICEVUTA: 'register'
+RAW JSON: {"action":"register","email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
+METODO: POST
+DATI GREZZI: {"email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
+DECODED JSON: {"email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
+AZIONE RICEVUTA: ''
+RAW JSON: {"email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
+Azione ricevuta: register
