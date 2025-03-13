@@ -15,8 +15,8 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Gestione Messaggi Backend</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-secondary">
-<div class="container mt-5">
+<body class="container bg-secondary">
+<div class=" mt-5">
     <h1 class="bg-success text-white p-3 rounded">Gestione Messaggi</h1>
     <table class="table table-striped bg-light">
         <thead class="table-dark">
@@ -39,7 +39,7 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php endforeach; ?>
         </tbody>
     </table>
-    <a href="../ecoctrl-front/index.html" class="btn btn-warning">Home</a>
+    <!-- <a href="../ecoctrl-front/index.html" class="btn btn-warning">Home</a> -->
 </div>
 
 <script>
