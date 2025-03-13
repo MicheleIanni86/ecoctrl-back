@@ -8,6 +8,13 @@ $stmt = $pdo->query("
 ");
 $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
+<?php
+session_start();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
