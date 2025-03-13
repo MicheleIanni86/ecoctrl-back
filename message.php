@@ -21,7 +21,7 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <table class="table table-striped bg-light">
         <thead class="table-dark">
             <tr>
-                <th>ID</th><th>Utente</th><th>Messaggio</th><th>Data</th><th>Azioni</th>
+                <th>ID</th><th>Utente</th><th>Messaggio</th><th>Data</th><th>Azioniooo</th>
             </tr>
         </thead>
         <tbody>
