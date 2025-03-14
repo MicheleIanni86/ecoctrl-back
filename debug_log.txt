@@ -1,374 +1,93 @@
-METODO: POST
-DATI GREZZI: 
-DECODED JSON: null
-AZIONE RICEVUTA: ''
-RAW JSON: null
-METODO: POST
-DATI GREZZI: 
-DECODED JSON: null
-AZIONE RICEVUTA: ''
-RAW JSON: null
-METODO: POST
-DATI GREZZI: 
-DECODED JSON: null
-AZIONE RICEVUTA: ''
-RAW JSON: null
-METODO: POST
-DATI GREZZI: 
-DECODED JSON: null
-AZIONE RICEVUTA: ''
-RAW JSON: null
-METODO: POST
-DATI GREZZI: 
-DECODED JSON: null
-AZIONE RICEVUTA: ''
-RAW JSON: null
-METODO: POST
-DATI GREZZI: 
-DECODED JSON: null
-AZIONE RICEVUTA: ''
-RAW JSON: null
-METODO: POST
-DATI GREZZI: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-DECODED JSON: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-LOGIN: Email: michele@gmail.com - Password: prova123
-LOGIN VERIFICA: {"id":1,"password":"prova123","role":"Admin"}
-LOGIN RIUSCITO: {"id":1,"password":"prova123","role":"Admin"}
-METODO: POST
-DATI GREZZI: {"action":"login","email":"andrea@gmail.com","password":"pass123"}
-DECODED JSON: {"action":"login","email":"andrea@gmail.com","password":"pass123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"andrea@gmail.com","password":"pass123"}
-LOGIN: Email: andrea@gmail.com - Password: pass123
-LOGIN VERIFICA: {"id":2,"password":"pass123","role":"Client"}
-LOGIN RIUSCITO: {"id":2,"password":"pass123","role":"Client"}
-METODO: POST
-DATI GREZZI: 
-DECODED JSON: null
-AZIONE RICEVUTA: ''
-RAW JSON: null
-METODO: POST
-DATI GREZZI: {"action":"register","email":"francesca@gmail.com","password":"francesca123"}
-DECODED JSON: {"action":"register","email":"francesca@gmail.com","password":"francesca123"}
-AZIONE RICEVUTA: 'register'
-RAW JSON: {"action":"register","email":"francesca@gmail.com","password":"francesca123"}
-METODO: POST
-DATI GREZZI: {"action":"login","email":"francesca@gmail.com","password":"francesca123"}
-DECODED JSON: {"action":"login","email":"francesca@gmail.com","password":"francesca123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"francesca@gmail.com","password":"francesca123"}
-LOGIN: Email: francesca@gmail.com - Password: francesca123
-LOGIN VERIFICA: {"id":5,"password":"francesca123","role":"Client"}
-LOGIN RIUSCITO: {"id":5,"password":"francesca123","role":"Client"}
-METODO: POST
-DATI GREZZI: {"action":"createTicket","user_id":5,"description":"provaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
-DECODED JSON: {"action":"createTicket","user_id":5,"description":"provaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
-AZIONE RICEVUTA: 'createTicket'
-RAW JSON: {"action":"createTicket","user_id":5,"description":"provaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
-METODO: POST
-DATI GREZZI: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-DECODED JSON: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-LOGIN: Email: michele@gmail.com - Password: prova123
-LOGIN VERIFICA: {"id":1,"password":"prova123","role":"Admin"}
-LOGIN RIUSCITO: {"id":1,"password":"prova123","role":"Admin"}
-METODO: POST
-DATI GREZZI: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-DECODED JSON: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-LOGIN: Email: michele@gmail.com - Password: prova123
-LOGIN VERIFICA: {"id":1,"password":"prova123","role":"Admin"}
-LOGIN RIUSCITO: {"id":1,"password":"prova123","role":"Admin"}
-METODO: POST
-DATI GREZZI: {"action":"register","email":"domenico@gmail.com","password":"123"}
-DECODED JSON: {"action":"register","email":"domenico@gmail.com","password":"123"}
-AZIONE RICEVUTA: 'register'
-RAW JSON: {"action":"register","email":"domenico@gmail.com","password":"123"}
-METODO: POST
-DATI GREZZI: {"action":"login","email":"domenico@gmail.com","password":"123"}
-DECODED JSON: {"action":"login","email":"domenico@gmail.com","password":"123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"domenico@gmail.com","password":"123"}
-LOGIN: Email: domenico@gmail.com - Password: 123
-LOGIN VERIFICA: {"id":6,"password":"123","role":"Client"}
-LOGIN RIUSCITO: {"id":6,"password":"123","role":"Client"}
-METODO: POST
-DATI GREZZI: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-DECODED JSON: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-LOGIN: Email: michele@gmail.com - Password: prova123
-LOGIN VERIFICA: {"id":1,"password":"prova123","role":"Admin"}
-LOGIN RIUSCITO: {"id":1,"password":"prova123","role":"Admin"}
-METODO: POST
-DATI GREZZI: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-DECODED JSON: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-LOGIN: Email: michele@gmail.com - Password: prova123
-LOGIN VERIFICA: {"id":1,"password":"prova123","role":"Admin"}
-LOGIN RIUSCITO: {"id":1,"password":"prova123","role":"Admin"}
-METODO: POST
-DATI GREZZI: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-DECODED JSON: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-LOGIN: Email: michele@gmail.com - Password: prova123
-LOGIN VERIFICA: {"id":1,"password":"prova123","role":"Admin"}
-LOGIN RIUSCITO: {"id":1,"password":"prova123","role":"Admin"}
-METODO: POST
-DATI GREZZI: {"action":"login","email":"andrea@gmail.com","password":"pass123"}
-DECODED JSON: {"action":"login","email":"andrea@gmail.com","password":"pass123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"andrea@gmail.com","password":"pass123"}
-LOGIN: Email: andrea@gmail.com - Password: pass123
-LOGIN VERIFICA: {"id":2,"password":"pass123","role":"Client"}
-LOGIN RIUSCITO: {"id":2,"password":"pass123","role":"Client"}
-METODO: POST
-DATI GREZZI: {"action":"createTicket","user_id":2,"description":"la bocchetta non funziona!"}
-DECODED JSON: {"action":"createTicket","user_id":2,"description":"la bocchetta non funziona!"}
-AZIONE RICEVUTA: 'createTicket'
-RAW JSON: {"action":"createTicket","user_id":2,"description":"la bocchetta non funziona!"}
-METODO: POST
-DATI GREZZI: {"action":"register","email":"checco@gmail.com","password":"checcp123"}
-DECODED JSON: {"action":"register","email":"checco@gmail.com","password":"checcp123"}
-AZIONE RICEVUTA: 'register'
-RAW JSON: {"action":"register","email":"checco@gmail.com","password":"checcp123"}
-METODO: POST
-DATI GREZZI: {"action":"login","email":"checco@gmail.com","password":"checcp123"}
-DECODED JSON: {"action":"login","email":"checco@gmail.com","password":"checcp123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"checco@gmail.com","password":"checcp123"}
-LOGIN: Email: checco@gmail.com - Password: checcp123
-LOGIN VERIFICA: {"id":7,"password":"checco123","role":"Client"}
-LOGIN FALLITO: Password errata - Password salvata: checco123
-METODO: POST
-DATI GREZZI: {"action":"login","email":"checco@gmail.com","password":"checco123"}
-DECODED JSON: {"action":"login","email":"checco@gmail.com","password":"checco123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"checco@gmail.com","password":"checco123"}
-LOGIN: Email: checco@gmail.com - Password: checco123
-LOGIN VERIFICA: {"id":7,"password":"checco123","role":"Client"}
-LOGIN RIUSCITO: {"id":7,"password":"checco123","role":"Client"}
-METODO: POST
-DATI GREZZI: 
-DECODED JSON: null
-AZIONE RICEVUTA: ''
-RAW JSON: null
-METODO: POST
-DATI GREZZI: {
-    "action": "register",
-    "email": "test@example.com",
-    "password": "password123"
-}
-DECODED JSON: {"action":"register","email":"test@example.com","password":"password123"}
-AZIONE RICEVUTA: 'register'
-RAW JSON: {"action":"register","email":"test@example.com","password":"password123"}
-METODO: POST
-DATI GREZZI: {
-    "action": "login",
-    "email": "test@example.com",
-    "password": "password123"
-}
-DECODED JSON: {"action":"login","email":"test@example.com","password":"password123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"test@example.com","password":"password123"}
-LOGIN: Email: test@example.com - Password: password123
-LOGIN VERIFICA: {"id":8,"password":"password123","role":"Client"}
-LOGIN RIUSCITO: {"id":8,"password":"password123","role":"Client"}
-METODO: POST
-DATI GREZZI: {
-    "action": "getTickets",
-    "user_id": 1
-}
-DECODED JSON: {"action":"getTickets","user_id":1}
-AZIONE RICEVUTA: 'getTickets'
-RAW JSON: {"action":"getTickets","user_id":1}
-METODO: POST
-DATI GREZZI: {
-    "action": "createTicket",
-    "user_id": 3,
-    "description": "Ho un problema con il servizio"
-}
-DECODED JSON: {"action":"createTicket","user_id":3,"description":"Ho un problema con il servizio"}
-AZIONE RICEVUTA: 'createTicket'
-RAW JSON: {"action":"createTicket","user_id":3,"description":"Ho un problema con il servizio"}
-METODO: POST
-DATI GREZZI: {
-    "action": "createTicket",
-    "user_id": 1,
-    "ticketCat_id": 1,
-    "description": "Problema con il sistema"
-}
-DECODED JSON: {"action":"createTicket","user_id":1,"ticketCat_id":1,"description":"Problema con il sistema"}
-AZIONE RICEVUTA: 'createTicket'
-RAW JSON: {"action":"createTicket","user_id":1,"ticketCat_id":1,"description":"Problema con il sistema"}
-METODO: POST
-DATI GREZZI: {
-    "action": "assignAdminToTicket",
-    "ticket_id": 1,
-    "admin_id": 1
-}
-DECODED JSON: {"action":"assignAdminToTicket","ticket_id":1,"admin_id":1}
-AZIONE RICEVUTA: 'assignAdminToTicket'
-RAW JSON: {"action":"assignAdminToTicket","ticket_id":1,"admin_id":1}
-METODO: POST
-DATI GREZZI: {
-    "action": "getTickets",
-    "user_id": 1
-}
-DECODED JSON: {"action":"getTickets","user_id":1}
-AZIONE RICEVUTA: 'getTickets'
-RAW JSON: {"action":"getTickets","user_id":1}
-METODO: POST
-DATI GREZZI: {
-    "action": "getTickets",
-    "user_id": 1
-}
-DECODED JSON: {"action":"getTickets","user_id":1}
-AZIONE RICEVUTA: 'getTickets'
-RAW JSON: {"action":"getTickets","user_id":1}
-METODO: POST
-DATI GREZZI: {
-    "action": "getTickets",
-    "user_id": 1
-}
-DECODED JSON: {"action":"getTickets","user_id":1}
-AZIONE RICEVUTA: 'getTickets'
-RAW JSON: {"action":"getTickets","user_id":1}
-METODO: POST
-DATI GREZZI: {
-    "action": "createTicket",
-    "user_id": 1,
-    "ticketCat_id": 1,
-    "description": "Problema con il sistema"
-}
-DECODED JSON: {"action":"createTicket","user_id":1,"ticketCat_id":1,"description":"Problema con il sistema"}
-AZIONE RICEVUTA: 'createTicket'
-RAW JSON: {"action":"createTicket","user_id":1,"ticketCat_id":1,"description":"Problema con il sistema"}
-METODO: POST
-DATI GREZZI: {
-    "action": "assignAdminToTicket",
-    "ticket_id": 1,
-    "admin_id": 1
-}
-DECODED JSON: {"action":"assignAdminToTicket","ticket_id":1,"admin_id":1}
-AZIONE RICEVUTA: 'assignAdminToTicket'
-RAW JSON: {"action":"assignAdminToTicket","ticket_id":1,"admin_id":1}
-METODO: POST
-DATI GREZZI: {
-    "action": "getTickets",
-    "user_id": 1
-}
-DECODED JSON: {"action":"getTickets","user_id":1}
-AZIONE RICEVUTA: 'getTickets'
-RAW JSON: {"action":"getTickets","user_id":1}
-METODO: POST
-DATI GREZZI: {
-    "action": "login",
-    "email": "test@example.com",
-    "password": "password123"
-}
-DECODED JSON: {"action":"login","email":"test@example.com","password":"password123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"test@example.com","password":"password123"}
-LOGIN: Email: test@example.com - Password: password123
-LOGIN VERIFICA: {"id":8,"password":"password123","role":"Client"}
-LOGIN RIUSCITO: {"id":8,"password":"password123","role":"Client"}
-METODO: POST
-DATI GREZZI: {
-    "action": "register",
-    "email": "test@example.com",
-    "password": "password123"
-}
-DECODED JSON: {"action":"register","email":"test@example.com","password":"password123"}
-AZIONE RICEVUTA: 'register'
-RAW JSON: {"action":"register","email":"test@example.com","password":"password123"}
-METODO: POST
-DATI GREZZI: {
-    "action": "register",
-    "email": "test@example.com",
-    "password": "password123"
-}
-DECODED JSON: {"action":"register","email":"test@example.com","password":"password123"}
-AZIONE RICEVUTA: 'register'
-RAW JSON: {"action":"register","email":"test@example.com","password":"password123"}
-METODO: POST
-DATI GREZZI: {
-    "action": "register",
-    "email": "ciccio@gmail.com",
-    "password": "ciccio123"
-}
-DECODED JSON: {"action":"register","email":"ciccio@gmail.com","password":"ciccio123"}
-AZIONE RICEVUTA: 'register'
-RAW JSON: {"action":"register","email":"ciccio@gmail.com","password":"ciccio123"}
-METODO: POST
-DATI GREZZI: {
-    "action": "assignAdminToTicket",
-    "ticket_id": 1,
-    "admin_id": 1
-}
-DECODED JSON: {"action":"assignAdminToTicket","ticket_id":1,"admin_id":1}
-AZIONE RICEVUTA: 'assignAdminToTicket'
-RAW JSON: {"action":"assignAdminToTicket","ticket_id":1,"admin_id":1}
-METODO: POST
-DATI GREZZI: {
-    "action": "getTickets",
-    "user_id": 1
-}
-DECODED JSON: {"action":"getTickets","user_id":1}
-AZIONE RICEVUTA: 'getTickets'
-RAW JSON: {"action":"getTickets","user_id":1}
-METODO: POST
-DATI GREZZI: {
-    "action": "assignAdminToTicket",
-    "ticket_id": 13,
-    "admin_id": 1
-}
-DECODED JSON: {"action":"assignAdminToTicket","ticket_id":13,"admin_id":1}
-AZIONE RICEVUTA: 'assignAdminToTicket'
-RAW JSON: {"action":"assignAdminToTicket","ticket_id":13,"admin_id":1}
-METODO: POST
-DATI GREZZI: {
-    "action": "getTickets",
-    "user_id": 1
-}
-DECODED JSON: {"action":"getTickets","user_id":1}
-AZIONE RICEVUTA: 'getTickets'
-RAW JSON: {"action":"getTickets","user_id":1}
-METODO: POST
-DATI GREZZI: {"action":"login","email":"checco@gmail.com","password":"checco123"}
-DECODED JSON: {"action":"login","email":"checco@gmail.com","password":"checco123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"checco@gmail.com","password":"checco123"}
-LOGIN: Email: checco@gmail.com - Password: checco123
-LOGIN VERIFICA: {"id":7,"password":"checco123","role":"Client"}
-LOGIN RIUSCITO: {"id":7,"password":"checco123","role":"Client"}
-METODO: POST
-DATI GREZZI: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-DECODED JSON: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-AZIONE RICEVUTA: 'login'
-RAW JSON: {"action":"login","email":"michele@gmail.com","password":"prova123"}
-LOGIN: Email: michele@gmail.com - Password: prova123
-LOGIN VERIFICA: {"id":1,"password":"prova123","role":"Admin"}
-LOGIN RIUSCITO: {"id":1,"password":"prova123","role":"Admin"}
-METODO: POST
-DATI GREZZI: {"action":"register","email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
-DECODED JSON: {"action":"register","email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
-AZIONE RICEVUTA: 'register'
-RAW JSON: {"action":"register","email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
-METODO: POST
-DATI GREZZI: {"action":"register","email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
-DECODED JSON: {"action":"register","email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
-AZIONE RICEVUTA: 'register'
-RAW JSON: {"action":"register","email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
-METODO: POST
-DATI GREZZI: {"email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
-DECODED JSON: {"email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
-AZIONE RICEVUTA: ''
-RAW JSON: {"email":"antonio@gmail.com","password":"antonio123","name":"Antonio","surname":"Bracone"}
-Azione ricevuta: register
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":11,"description":"asdasdasdasdasd"}
+📌 Creazione ticket ricevuta.
+✅ Ticket creato con successo per utente 11
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":11,"description":"ddddddddddddddddddddddddddddddddddddddddddddddd"}
+📌 Creazione ticket ricevuta.
+✅ Ticket creato con successo per utente 11
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: PUT | Azione ricevuta: {"action":"updateMessage"} | POST Data: {"id":"48","messageText":"33333333333333333333333"}
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":11,"description":"ggggggggggggggggggggggggggggggggggggggf"}
+📌 Creazione ticket ricevuta.
+✅ Ticket creato con successo per utente 11
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":11,"description":"eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"}
+📌 Creazione ticket ricevuta.
+✅ Ticket creato con successo per utente 11
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":11,"description":"dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"}
+📌 Creazione ticket ricevuta.
+✅ Ticket creato con successo per utente 11
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":11,"description":"666666666666666666666666666"}
+📌 Creazione ticket ricevuta.
+✅ Ticket creato con successo per utente 11
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: PUT | Azione ricevuta: {"action":"updateMessage"} | POST Data: {"id":"48","messageText":"fffffffffffffff"}
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: DELETE | Azione ricevuta: {"action":"deleteMessage"} | POST Data: {"id":"52"}
+📌 Eliminazione messaggio ricevuta
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: DELETE | Azione ricevuta: {"action":"deleteMessage"} | POST Data: {"id":"52"}
+📌 Eliminazione messaggio ricevuta
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: DELETE | Azione ricevuta: {"action":"deleteTicket"} | POST Data: {"id":"52"}
+📌 Eliminazione ticket ricevuta
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: PUT | Azione ricevuta: {"action":"updateTicket"} | POST Data: {"id":"51","messageText":"FFFFFFFFFFFFFFFFFFFFFFFF"}
+📌 Modifica ticket ricevuta
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"andrea@gmail.com","password":"pass123"}
+📌 Login ricevuto, elaborazione iniziata.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":2,"description":"dddddddddddddddddddddddddddddd"}
+📌 Creazione ticket ricevuta.
+✅ Ticket creato con successo per utente 2
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: PUT | Azione ricevuta: {"action":"updateTicket"} | POST Data: {"id":"53","messageText":"ddddddddddddddddddddddddddddd333333333333333333d"}
+📌 Modifica ticket ricevuta
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: DELETE | Azione ricevuta: {"action":"deleteTicket"} | POST Data: {"id":"53"}
+📌 Eliminazione ticket ricevuta
+✅ Connessione al database riuscita.
