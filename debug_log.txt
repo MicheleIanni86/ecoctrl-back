@@ -207,3 +207,11 @@
 ✅ Connessione al database riuscita.
 📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"getUserTickets","user_id":2}
 📌 Chiamata a getUserTickets ricevuta per user_id: 2
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"sistema@ecoctrl.com","password":"password"}
+📌 Login ricevuto, elaborazione iniziata.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"sistema@ecoctrl.com","password":"password"}
+📌 Login ricevuto, elaborazione iniziata.
