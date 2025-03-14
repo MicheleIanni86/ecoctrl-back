@@ -4,7 +4,7 @@
 $host = "localhost";
 $db   = "ticket_manager";  
 $user = "root";           
-$pass = "root";           
+$pass = "";           
 $charset = "utf8mb4";
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

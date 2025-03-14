@@ -109,6 +109,46 @@ if ($method === "POST" && $action === "login") {
     }
 }
 
+// ✅ OTTENERE LISTA UTENTI
+if ($method === "POST" && $action === "getUserTickets") {  // ✅ Ora è un POST
+    if (ob_get_length()) ob_clean();
+
+    $user_id = $data["user_id"] ?? null;  // ✅ Ora prendiamo `user_id` dal body JSON
+
+    if (!$user_id) {
+        echo json_encode(["success" => false, "message" => "ID utente mancante"]);
+        exit;
+    }
+
+    file_put_contents("debug_log.txt", "📌 Chiamata a getUserTickets ricevuta per user_id: $user_id\n", FILE_APPEND);
+
+    try {
+        $stmt = $pdo->prepare("
+            SELECT t.id, t.description AS message, t.ticketDate AS timestamp, 
+                   t.status,
+                   IFNULL(a.name, 'Non Assegnato') AS admin
+            FROM tickets t
+            LEFT JOIN users a ON t.admin_id = a.id
+            WHERE t.client_id = :user_id
+            ORDER BY t.ticketDate DESC
+        ");
+
+        $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        echo json_encode(["success" => true, "tickets" => $tickets], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        exit;
+
+    } catch (PDOException $e) {
+        file_put_contents("debug_log.txt", "❌ Errore SQL: " . $e->getMessage() . "\n", FILE_APPEND);
+        echo json_encode(["success" => false, "message" => "Errore nella query"]);
+        exit;
+    }
+}
+
+
+
 // ✅ OTTENERE LE SEGNALAZIONI (TICKETS)
 if ($method === "GET" && $action === "getMessages") {
     if (ob_get_length()) ob_clean();  // ✅ Rimuove qualsiasi output indesiderato
