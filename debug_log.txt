@@ -1,217 +1,334 @@
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":11,"description":"asdasdasdasdasd"}
-📌 Creazione ticket ricevuta.
-✅ Ticket creato con successo per utente 11
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":11,"description":"ddddddddddddddddddddddddddddddddddddddddddddddd"}
-📌 Creazione ticket ricevuta.
-✅ Ticket creato con successo per utente 11
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: PUT | Azione ricevuta: {"action":"updateMessage"} | POST Data: {"id":"48","messageText":"33333333333333333333333"}
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":11,"description":"ggggggggggggggggggggggggggggggggggggggf"}
-📌 Creazione ticket ricevuta.
-✅ Ticket creato con successo per utente 11
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":11,"description":"eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"}
-📌 Creazione ticket ricevuta.
-✅ Ticket creato con successo per utente 11
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":11,"description":"dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"}
-📌 Creazione ticket ricevuta.
-✅ Ticket creato con successo per utente 11
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":11,"description":"666666666666666666666666666"}
-📌 Creazione ticket ricevuta.
-✅ Ticket creato con successo per utente 11
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: PUT | Azione ricevuta: {"action":"updateMessage"} | POST Data: {"id":"48","messageText":"fffffffffffffff"}
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: DELETE | Azione ricevuta: {"action":"deleteMessage"} | POST Data: {"id":"52"}
-📌 Eliminazione messaggio ricevuta
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: DELETE | Azione ricevuta: {"action":"deleteMessage"} | POST Data: {"id":"52"}
-📌 Eliminazione messaggio ricevuta
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: DELETE | Azione ricevuta: {"action":"deleteTicket"} | POST Data: {"id":"52"}
-📌 Eliminazione ticket ricevuta
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: PUT | Azione ricevuta: {"action":"updateTicket"} | POST Data: {"id":"51","messageText":"FFFFFFFFFFFFFFFFFFFFFFFF"}
-📌 Modifica ticket ricevuta
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"andrea@gmail.com","password":"pass123"}
-📌 Login ricevuto, elaborazione iniziata.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":2,"description":"dddddddddddddddddddddddddddddd"}
-📌 Creazione ticket ricevuta.
-✅ Ticket creato con successo per utente 2
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: PUT | Azione ricevuta: {"action":"updateTicket"} | POST Data: {"id":"53","messageText":"ddddddddddddddddddddddddddddd333333333333333333d"}
-📌 Modifica ticket ricevuta
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: DELETE | Azione ricevuta: {"action":"deleteTicket"} | POST Data: {"id":"53"}
-📌 Eliminazione ticket ricevuta
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"test@example.com","password":"password123"}
-📌 Login ricevuto, elaborazione iniziata.
-✅ Connessione al database riuscita.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+)
+
 ✅ Connessione al database riuscita.
 ✅ Connessione al database riuscita.
 📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"michele@gmail.com","password":"prova123"}
 📌 Login ricevuto, elaborazione iniziata.
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
 ✅ Connessione al database riuscita.
 ✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: {"action":"takeTicket"} | POST Data: {"id":"51"}
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+📌 Prendere in carico ticket ricevuto.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
 ✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"test@example.com","password":"password123"}
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: {"action":"updateTicketStatus"} | POST Data: {"id":"51","status":"In corso"}
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+📌 Cambiare stato ticket ricevuto.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+✅ Connessione al database riuscita.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+✅ Connessione al database riuscita.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+✅ Connessione al database riuscita.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+✅ Connessione al database riuscita.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+✅ Connessione al database riuscita.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+✅ Connessione al database riuscita.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+✅ Connessione al database riuscita.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+✅ Connessione al database riuscita.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+✅ Connessione al database riuscita.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+✅ Connessione al database riuscita.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"updateTicketStatus","id":"48","status":"Chiuso"}
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+📌 Cambiare stato ticket ricevuto.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"takeTicket","id":"49"}
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+📌 Prendere in carico ticket ricevuto.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"releaseTicket","id":"49"}
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 1
+    [user_role] => Admin
+)
+
+📌 Rilascio ticket ricevuto.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"sisteam@ecoctrl.com","password":"password"}
 📌 Login ricevuto, elaborazione iniziata.
 ✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"register","email":"ciccio@gmail.com","password":"ciccio123"}
-📌 Tentativo di registrazione ricevuto.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"andrea@gmail.com","password":"pass123"}
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"sistema@ecoctrl.com","password":"password"}
 📌 Login ricevuto, elaborazione iniziata.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":2,"description":"aisuhdiaushdasdiuas prova"}
-📌 Creazione ticket ricevuta.
-✅ Ticket creato con successo per utente 2
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":2,"description":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
-📌 Creazione ticket ricevuta.
-✅ Ticket creato con successo per utente 2
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":2,"description":"aaaaaaaaaaaaaaaaaaaaaaaaaa"}
-📌 Creazione ticket ricevuta.
-✅ Ticket creato con successo per utente 2
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":2,"description":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
-📌 Creazione ticket ricevuta.
-✅ Ticket creato con successo per utente 2
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":2,"description":"sssssssssssssssssssssssssss"}
-📌 Creazione ticket ricevuta.
-✅ Ticket creato con successo per utente 2
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":2,"description":"prova prova prova prova prova prova prova prova prova prova prova prova prova prova prova prova prova prova prova prova prova prova"}
-📌 Creazione ticket ricevuta.
-✅ Ticket creato con successo per utente 2
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":2,"description":"addddddddddddddwwwwwwww"}
-📌 Creazione ticket ricevuta.
-✅ Ticket creato con successo per utente 2
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"getUserTickets","user_id":2}
-📌 Chiamata a getUserTickets ricevuta per user_id: 2
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"getUserTickets","user_id":2}
-📌 Chiamata a getUserTickets ricevuta per user_id: 2
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: DELETE | Azione ricevuta: {"action":"deleteTicket"} | POST Data: {"id":"59"}
-📌 Eliminazione ticket ricevuta
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"getUserTickets","user_id":2}
-📌 Chiamata a getUserTickets ricevuta per user_id: 2
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"createTicket"} | POST Data: {"action":"createTicket","user_id":2,"description":"adaidhaidhaihdad"}
-📌 Creazione ticket ricevuta.
-✅ Ticket creato con successo per utente 2
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"getUserTickets","user_id":2}
-📌 Chiamata a getUserTickets ricevuta per user_id: 2
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: DELETE | Azione ricevuta: {"action":"deleteTicket"} | POST Data: {"id":"61"}
-📌 Eliminazione ticket ricevuta
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"getUserTickets","user_id":2}
-📌 Chiamata a getUserTickets ricevuta per user_id: 2
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 0
+    [user_role] => SuperAdmin
+)
+
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 0
+    [user_role] => SuperAdmin
+)
+
 ✅ Connessione al database riuscita.
 ✅ Connessione al database riuscita.
 📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"sistema@ecoctrl.com","password":"password"}
 📌 Login ricevuto, elaborazione iniziata.
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 0
+    [user_role] => SuperAdmin
+)
+
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 0
+    [user_role] => SuperAdmin
+)
+
 ✅ Connessione al database riuscita.
 ✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"sistema@ecoctrl.com","password":"password"}
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"assignTicket","id":"51","admin_id":"3"}
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 0
+    [user_role] => SuperAdmin
+)
+
+📌 Assegnazione ticket ricevuta.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 0
+    [user_role] => SuperAdmin
+)
+
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"assignTicket","id":"50","admin_id":"1"}
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 0
+    [user_role] => SuperAdmin
+)
+
+📌 Assegnazione ticket ricevuta.
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 0
+    [user_role] => SuperAdmin
+)
+
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"franco@mail.com","password":"pass123"}
 📌 Login ricevuto, elaborazione iniziata.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"franco@mail.com","password":"pass456"}
+📌 Login ricevuto, elaborazione iniziata.
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 3
+    [user_role] => Admin
+)
+
+📌 Sessione in message.php: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 3
+    [user_role] => Admin
+)
+
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"takeTicket","id":"46"}
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 3
+    [user_role] => Admin
+)
+
+📌 Prendere in carico ticket ricevuto.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"takeTicket","id":"45"}
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 3
+    [user_role] => Admin
+)
+
+📌 Prendere in carico ticket ricevuto.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"takeTicket","id":"44"}
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 3
+    [user_role] => Admin
+)
+
+📌 Prendere in carico ticket ricevuto.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"releaseTicket","id":"46"}
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 3
+    [user_role] => Admin
+)
+
+📌 Rilascio ticket ricevuto.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"releaseTicket","id":"45"}
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 3
+    [user_role] => Admin
+)
+
+📌 Rilascio ticket ricevuto.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"releaseTicket","id":"44"}
+📌 Sessione dopo il login: Array
+(
+    [test] => Sessione funzionante
+    [user_id] => 3
+    [user_role] => Admin
+)
+
+📌 Rilascio ticket ricevuto.

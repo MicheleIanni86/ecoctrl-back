@@ -1,4 +1,5 @@
 <?php
+session_start();
 header("Access-Control-Allow-Origin: *"); 
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS"); 
 header("Access-Control-Allow-Headers: Content-Type"); 
@@ -68,7 +69,6 @@ if ($method === "POST" && $action === "register") {
 if ($method === "POST" && $action === "login") {
     file_put_contents("debug_log.txt", "📌 Login ricevuto, elaborazione iniziata.\n", FILE_APPEND);
 
-
     $email = trim($data["email"] ?? '');
     $password = trim($data["password"] ?? '');
 
@@ -92,6 +92,13 @@ if ($method === "POST" && $action === "login") {
             exit;
         }
 
+        // ✅ Salva l'ID e il ruolo dell'utente nella sessione
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_role'] = $user['role'];
+
+        // ✅ Debug della sessione
+file_put_contents("debug_log.txt", "📌 Sessione dopo il login: " . print_r($_SESSION, true) . "\n", FILE_APPEND);
+
         echo json_encode([
             "success" => true,
             "user" => [
@@ -108,6 +115,9 @@ if ($method === "POST" && $action === "login") {
         exit;
     }
 }
+
+// ✅ Debug della sessione
+file_put_contents("debug_log.txt", "📌 Sessione dopo il login: " . print_r($_SESSION, true) . "\n", FILE_APPEND);
 
 // ✅ OTTENERE LISTA UTENTI
 if ($method === "POST" && $action === "getUserTickets") {  // ✅ Ora è un POST
@@ -150,8 +160,9 @@ if ($method === "POST" && $action === "getUserTickets") {  // ✅ Ora è un POST
 
 
 // ✅ OTTENERE LE SEGNALAZIONI (TICKETS)
+// ✅ OTTENERE TUTTI I TICKET
 if ($method === "GET" && $action === "getMessages") {
-    if (ob_get_length()) ob_clean();  // ✅ Rimuove qualsiasi output indesiderato
+    if (ob_get_length()) ob_clean();
 
     file_put_contents("debug_log.txt", "📌 Chiamata a getMessages ricevuta!\n", FILE_APPEND);
 
@@ -169,30 +180,7 @@ if ($method === "GET" && $action === "getMessages") {
         $stmt->execute();
         $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // ✅ Logghiamo i dati PRIMA della conversione JSON
-        file_put_contents("debug_log.txt", "📌 Dati ricevuti dal database:\n" . print_r($messages, true) . "\n", FILE_APPEND);
-
-        // ✅ Controlliamo se ci sono valori NULL nei dati
-        foreach ($messages as $index => $message) {
-            foreach ($message as $key => $value) {
-                if (is_null($value)) {
-                    file_put_contents("debug_log.txt", "❌ ATTENZIONE: Valore NULL in riga $index, colonna '$key'\n", FILE_APPEND);
-                }
-            }
-        }
-
-        // ✅ Testiamo la conversione JSON
-        $jsonResponse = json_encode(["success" => true, "messages" => $messages], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-
-        if ($jsonResponse === false) {
-            $jsonError = json_last_error_msg();
-            file_put_contents("debug_log.txt", "❌ Errore nella conversione JSON: $jsonError\n", FILE_APPEND);
-            echo json_encode(["success" => false, "message" => "Errore nella conversione JSON", "error" => $jsonError]);
-            exit;
-        }
-
-        file_put_contents("debug_log.txt", "✅ JSON inviato:\n" . $jsonResponse . "\n", FILE_APPEND);
-        echo $jsonResponse;
+        echo json_encode(["success" => true, "messages" => $messages], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         exit;
 
     } catch (PDOException $e) {
@@ -200,6 +188,98 @@ if ($method === "GET" && $action === "getMessages") {
         echo json_encode(["success" => false, "message" => "Errore nella query"]);
         exit;
     }
+}
+
+
+// ✅ ASSEGNARE UN TICKET A UN ALTRO ADMIN (SuperAdmin only)
+if ($method === "POST" && $action === "assignTicket") {
+    file_put_contents("debug_log.txt", "📌 Assegnazione ticket ricevuta.\n", FILE_APPEND);
+
+    $ticket_id = $data["id"] ?? null;
+    $admin_id = $data["admin_id"] ?? null;
+
+    if (!$ticket_id || !$admin_id) {
+        echo json_encode(["success" => false, "message" => "Dati mancanti"]);
+        exit;
+    }
+
+    try {
+        $stmt = $pdo->prepare("UPDATE tickets SET admin_id = ?, status = 'In corso' WHERE id = ?");
+        $stmt->execute([$admin_id, $ticket_id]);
+
+        echo json_encode(["success" => true, "message" => "Ticket assegnato con successo!"]);
+    } catch (PDOException $e) {
+        echo json_encode(["success" => false, "message" => "Errore nell'assegnazione del ticket"]);
+    }
+    exit;
+}
+
+// ✅ PRENDERE IN CARICO UN TICKET (Admin only)
+if ($method === "POST" && $action === "takeTicket") {
+    file_put_contents("debug_log.txt", "📌 Prendere in carico ticket ricevuto.\n", FILE_APPEND);
+
+    $ticket_id = $data["id"] ?? null;
+    $admin_id = $_SESSION["user_id"] ?? null; // ✅ L'admin può prendere in carico solo per sé stesso
+
+    if (!$ticket_id || !$admin_id) {
+        echo json_encode(["success" => false, "message" => "Dati mancanti"]);
+        exit;
+    }
+
+    try {
+        $stmt = $pdo->prepare("UPDATE tickets SET admin_id = ?, status = 'In corso' WHERE id = ?");
+        $stmt->execute([$admin_id, $ticket_id]);
+
+        echo json_encode(["success" => true, "message" => "Ticket preso in carico con successo!"]);
+    } catch (PDOException $e) {
+        echo json_encode(["success" => false, "message" => "Errore nell'aggiornamento del ticket"]);
+    }
+    exit;
+}
+
+// ✅ RILASCIARE UN TICKET
+if ($method === "POST" && $action === "releaseTicket") {
+    file_put_contents("debug_log.txt", "📌 Rilascio ticket ricevuto.\n", FILE_APPEND);
+
+    $ticket_id = $data["id"] ?? null;
+
+    if (!$ticket_id) {
+        echo json_encode(["success" => false, "message" => "ID ticket mancante"]);
+        exit;
+    }
+
+    try {
+        $stmt = $pdo->prepare("UPDATE tickets SET admin_id = NULL, status = 'Aperto' WHERE id = ?");
+        $stmt->execute([$ticket_id]);
+
+        echo json_encode(["success" => true, "message" => "Ticket rilasciato con successo!"]);
+    } catch (PDOException $e) {
+        echo json_encode(["success" => false, "message" => "Errore nel rilascio del ticket"]);
+    }
+    exit;
+}
+
+// ✅ CAMBIARE LO STATO DI UN TICKET
+if ($method === "POST" && $action === "updateTicketStatus") {
+    file_put_contents("debug_log.txt", "📌 Cambiare stato ticket ricevuto.\n", FILE_APPEND);
+
+    $ticket_id = $data["id"] ?? null;
+    $status = $data["status"] ?? null;
+
+    if (!$ticket_id || !$status) {
+        echo json_encode(["success" => false, "message" => "Dati mancanti"]);
+        exit;
+    }
+
+    try {
+        $stmt = $pdo->prepare("UPDATE tickets SET status = ? WHERE id = ?");
+        $stmt->execute([$status, $ticket_id]);
+
+        echo json_encode(["success" => true, "message" => "Stato del ticket aggiornato con successo!"]);
+    } catch (PDOException $e) {
+        echo json_encode(["success" => false, "message" => "Errore nell'aggiornamento del ticket"]);
+    }
+    exit;
 }
 
 
@@ -223,7 +303,7 @@ if ($method === "POST" && $action === "createTicket") {
     try {
         $stmt = $pdo->prepare("INSERT INTO tickets (ticketDate, description, client_id, ticketCat_id, status) 
                                VALUES (NOW(), ?, ?, ?, 'Aperto')");
-        $stmt->execute([$description, $user_id, 1]);
+        $stmt->execute([$description, $user_id, 1]); // ✅ ticketCat_id = 1 (categoria predefinita)
 
         file_put_contents("debug_log.txt", "✅ Ticket creato con successo per utente $user_id\n", FILE_APPEND);
         echo json_encode(["success" => true, "message" => "Segnalazione inviata con successo!"]);
