@@ -1,334 +1,159 @@
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "get_ticket_categories"
+📌 Richiesta get_ticket_categories ricevuta.
+✅ Categorie trovate: [{"id":1,"name":"software"},{"id":2,"name":"hardware"},{"id":3,"name":"amministrazione"}]
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: "createTicket"
+📌 Creazione ticket ricevuta. Dati: {"action":"createTicket","user_id":2,"description":"aaaaaaaaaaaaaaaaaaaaa","ticketCat_id":"2"}
+✅ Ticket creato con successo per utente 2
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "getUserTickets"
+📌 Chiamata a getUserTickets ricevuta per user_id: 2
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "get_ticket_categories"
+📌 Richiesta get_ticket_categories ricevuta.
+✅ Categorie trovate: [{"id":1,"name":"software"},{"id":2,"name":"hardware"},{"id":3,"name":"amministrazione"}]
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: "createTicket"
+📌 Creazione ticket ricevuta. Dati: {"action":"createTicket","user_id":2,"description":"ggggggggggggggggggggggggg","ticketCat_id":"1"}
+✅ Ticket creato con successo per utente 2
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "getUserTickets"
+📌 Chiamata a getUserTickets ricevuta per user_id: 2
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "get_ticket_categories"
+📌 Richiesta get_ticket_categories ricevuta.
+✅ Categorie trovate: [{"id":1,"name":"software"},{"id":2,"name":"hardware"},{"id":3,"name":"amministrazione"}]
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: "createTicket"
+📌 Creazione ticket ricevuta. Dati: {"action":"createTicket","user_id":2,"description":"ssssssssssssssssssdddddddddddd","ticketCat_id":"2"}
+✅ Ticket creato con successo per utente 2
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "getUserTickets"
+📌 Chiamata a getUserTickets ricevuta per user_id: 2
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: "createTicket"
+📌 Creazione ticket ricevuta. Dati: {"action":"createTicket","user_id":2,"description":"porcamiseriaaaaaaaaaa","ticketCat_id":"3"}
+✅ Ticket creato con successo per utente 2
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "getUserTickets"
+📌 Chiamata a getUserTickets ricevuta per user_id: 2
 📌 Sessione in message.php: Array
 (
-    [test] => Sessione funzionante
+    [user_id] => 2
+    [user_role] => Client
 )
 
 ✅ Connessione al database riuscita.
 ✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"michele@gmail.com","password":"prova123"}
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: "login"
 📌 Login ricevuto, elaborazione iniziata.
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
 📌 Sessione in message.php: Array
 (
-    [test] => Sessione funzionante
     [user_id] => 1
     [user_role] => Admin
 )
 
 ✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"takeTicket"} | POST Data: {"id":"51"}
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
-📌 Prendere in carico ticket ricevuto.
+📌 Sono dentro la sezione Admin di message.php!
+📌 Debug Query Ticket Disponibili (Admin ID: 1)
+📌 Query eseguita: SELECT t.id, t.description, t.status, u.name AS client_name 
+    FROM tickets t 
+    JOIN users u ON t.client_id = u.id 
+    WHERE t.admin_id IS NULL 
+    AND t.ticketCat_id IN (SELECT ticketcategories_id FROM user_ticketcategory WHERE user_id = ?)
+📌 Ticket disponibili trovati: 14
+📌 Ticket Disponibili trovati: 14
 📌 Sessione in message.php: Array
 (
-    [test] => Sessione funzionante
     [user_id] => 1
     [user_role] => Admin
 )
 
 ✅ Connessione al database riuscita.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: {"action":"updateTicketStatus"} | POST Data: {"id":"51","status":"In corso"}
-📌 Sessione dopo il login: Array
+📌 Sono dentro la sezione Admin di message.php!
+📌 Debug Query Ticket Disponibili (Admin ID: 1)
+📌 Query eseguita: SELECT t.id, t.description, t.status, u.name AS client_name 
+    FROM tickets t 
+    JOIN users u ON t.client_id = u.id 
+    WHERE t.admin_id IS NULL 
+    AND t.ticketCat_id IN (SELECT ticketcategories_id FROM user_ticketcategory WHERE user_id = ?)
+📌 Ticket disponibili trovati: 14
+📌 Ticket Disponibili trovati: 14
+📌 POST ricevuto: Array
 (
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
+    [ticket_id] => 60
+    [take_ticket] => 
 )
 
-📌 Cambiare stato ticket ricevuto.
+📌 Admin sta prendendo in carico il ticket ID: 60
 📌 Sessione in message.php: Array
 (
-    [test] => Sessione funzionante
     [user_id] => 1
     [user_role] => Admin
 )
 
 ✅ Connessione al database riuscita.
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
-✅ Connessione al database riuscita.
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
-✅ Connessione al database riuscita.
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
-✅ Connessione al database riuscita.
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
-✅ Connessione al database riuscita.
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
-✅ Connessione al database riuscita.
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
-✅ Connessione al database riuscita.
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
-✅ Connessione al database riuscita.
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
-✅ Connessione al database riuscita.
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
-✅ Connessione al database riuscita.
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
+📌 Sono dentro la sezione Admin di message.php!
+📌 Debug Query Ticket Disponibili (Admin ID: 1)
+📌 Query eseguita: SELECT t.id, t.description, t.status, u.name AS client_name 
+    FROM tickets t 
+    JOIN users u ON t.client_id = u.id 
+    WHERE t.admin_id IS NULL 
+    AND t.ticketCat_id IN (SELECT ticketcategories_id FROM user_ticketcategory WHERE user_id = ?)
+📌 Ticket disponibili trovati: 13
+📌 Ticket Disponibili trovati: 13
 ✅ Connessione al database riuscita.
 ✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"updateTicketStatus","id":"48","status":"Chiuso"}
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
-📌 Cambiare stato ticket ricevuto.
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
+📌 Metodo: GET | Azione ricevuta: "get_ticket_categories"
+📌 Richiesta get_ticket_categories ricevuta.
+✅ Categorie trovate: [{"id":1,"name":"software"},{"id":2,"name":"hardware"},{"id":3,"name":"amministrazione"}]
 ✅ Connessione al database riuscita.
 ✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"takeTicket","id":"49"}
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
-📌 Prendere in carico ticket ricevuto.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"releaseTicket","id":"49"}
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 1
-    [user_role] => Admin
-)
-
-📌 Rilascio ticket ricevuto.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"sisteam@ecoctrl.com","password":"password"}
+📌 Metodo: POST | Azione ricevuta: "login"
 📌 Login ricevuto, elaborazione iniziata.
 ✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"sistema@ecoctrl.com","password":"password"}
-📌 Login ricevuto, elaborazione iniziata.
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 0
-    [user_role] => SuperAdmin
-)
-
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 0
-    [user_role] => SuperAdmin
-)
-
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "get_ticket_categories"
+📌 Richiesta get_ticket_categories ricevuta.
+✅ Categorie trovate: [{"id":1,"name":"software"},{"id":2,"name":"hardware"},{"id":3,"name":"amministrazione"}]
 ✅ Connessione al database riuscita.
 ✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"sistema@ecoctrl.com","password":"password"}
-📌 Login ricevuto, elaborazione iniziata.
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 0
-    [user_role] => SuperAdmin
-)
-
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 0
-    [user_role] => SuperAdmin
-)
-
+📌 Metodo: GET | Azione ricevuta: "get_ticket_categories"
+📌 Richiesta get_ticket_categories ricevuta.
+✅ Categorie trovate: [{"id":1,"name":"software"},{"id":2,"name":"hardware"},{"id":3,"name":"amministrazione"}]
 ✅ Connessione al database riuscita.
 ✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"assignTicket","id":"51","admin_id":"3"}
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 0
-    [user_role] => SuperAdmin
-)
-
-📌 Assegnazione ticket ricevuta.
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 0
-    [user_role] => SuperAdmin
-)
-
+📌 Metodo: POST | Azione ricevuta: "createTicket"
+📌 Creazione ticket ricevuta. Dati: {"action":"createTicket","user_id":2,"description":"ffffffffffffffffff","ticketCat_id":"1"}
+✅ Ticket creato con successo per utente 2
 ✅ Connessione al database riuscita.
 ✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"assignTicket","id":"50","admin_id":"1"}
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 0
-    [user_role] => SuperAdmin
-)
-
-📌 Assegnazione ticket ricevuta.
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 0
-    [user_role] => SuperAdmin
-)
-
+📌 Metodo: GET | Azione ricevuta: "getUserTickets"
+📌 Chiamata a getUserTickets ricevuta per user_id: 2
 ✅ Connessione al database riuscita.
 ✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"franco@mail.com","password":"pass123"}
-📌 Login ricevuto, elaborazione iniziata.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"login","email":"franco@mail.com","password":"pass456"}
-📌 Login ricevuto, elaborazione iniziata.
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 3
-    [user_role] => Admin
-)
-
-📌 Sessione in message.php: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 3
-    [user_role] => Admin
-)
-
+📌 Metodo: GET | Azione ricevuta: "get_ticket_categories"
+📌 Richiesta get_ticket_categories ricevuta.
+✅ Categorie trovate: [{"id":1,"name":"software"},{"id":2,"name":"hardware"},{"id":3,"name":"amministrazione"}]
 ✅ Connessione al database riuscita.
 ✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"takeTicket","id":"46"}
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 3
-    [user_role] => Admin
-)
-
-📌 Prendere in carico ticket ricevuto.
+📌 Metodo: GET | Azione ricevuta: "getUserTickets"
+📌 Chiamata a getUserTickets ricevuta per user_id: 2
 ✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"takeTicket","id":"45"}
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 3
-    [user_role] => Admin
-)
-
-📌 Prendere in carico ticket ricevuto.
 ✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"takeTicket","id":"44"}
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 3
-    [user_role] => Admin
-)
-
-📌 Prendere in carico ticket ricevuto.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"releaseTicket","id":"46"}
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 3
-    [user_role] => Admin
-)
-
-📌 Rilascio ticket ricevuto.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"releaseTicket","id":"45"}
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 3
-    [user_role] => Admin
-)
-
-📌 Rilascio ticket ricevuto.
-✅ Connessione al database riuscita.
-📌 Metodo: POST | Azione ricevuta: [] | POST Data: {"action":"releaseTicket","id":"44"}
-📌 Sessione dopo il login: Array
-(
-    [test] => Sessione funzionante
-    [user_id] => 3
-    [user_role] => Admin
-)
-
-📌 Rilascio ticket ricevuto.
+📌 Metodo: GET | Azione ricevuta: "get_ticket_categories"
+📌 Richiesta get_ticket_categories ricevuta.
+✅ Categorie trovate: [{"id":1,"name":"software"},{"id":2,"name":"hardware"},{"id":3,"name":"amministrazione"}]

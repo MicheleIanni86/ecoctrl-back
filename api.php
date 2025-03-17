@@ -7,29 +7,25 @@ header("Content-Type: application/json");
 
 require_once "db.php"; 
 
-// ✅ Rispondere alle richieste preflight CORS
-if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
-    http_response_code(200);
-    exit;
-}
+// ✅ Debug: Verifica connessione database
+file_put_contents("debug_log.txt", "✅ Connessione al database riuscita.\n", FILE_APPEND);
+
+// ✅ Ricezione metodo della richiesta
+$method = $_SERVER["REQUEST_METHOD"];
 
 // ✅ Ricezione dati JSON
 $jsonInput = trim(file_get_contents("php://input"));
 $data = json_decode($jsonInput, true);
-
-// ✅ Controllo JSON
-if (json_last_error() !== JSON_ERROR_NONE) {
-    echo json_encode(["success" => false, "message" => "Errore nella decodifica JSON"]);
-    exit;
+if (!is_array($data)) {
+    $data = [];
 }
 
-// ✅ Determina il metodo della richiesta
-$method = $_SERVER["REQUEST_METHOD"];
-$action = $data["action"] ?? ($_GET["action"] ?? ""); // ✅ Ora legge l'azione sia da POST che da GET
+// ✅ Recupera l'azione dall'input JSON o dai parametri GET
+$action = isset($data["action"]) ? $data["action"] : (isset($_GET["action"]) ? $_GET["action"] : "");
 
+// ✅ Debug: Scrive il metodo e l'azione ricevuta
+file_put_contents("debug_log.txt", "📌 Metodo: $method | Azione ricevuta: " . json_encode($action) . "\n", FILE_APPEND);
 
-// ✅ LOG delle richieste
-file_put_contents("debug_log.txt", "📌 Metodo: $method | Azione ricevuta: " . json_encode($_GET) . " | POST Data: " . json_encode($data) . "\n", FILE_APPEND);
 
 // ✅ REGISTRAZIONE UTENTE (POST)
 if ($method === "POST" && $action === "register") {
@@ -96,8 +92,6 @@ if ($method === "POST" && $action === "login") {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_role'] = $user['role'];
 
-        // ✅ Debug della sessione
-file_put_contents("debug_log.txt", "📌 Sessione dopo il login: " . print_r($_SESSION, true) . "\n", FILE_APPEND);
 
         echo json_encode([
             "success" => true,
@@ -116,21 +110,17 @@ file_put_contents("debug_log.txt", "📌 Sessione dopo il login: " . print_r($_S
     }
 }
 
-// ✅ Debug della sessione
-file_put_contents("debug_log.txt", "📌 Sessione dopo il login: " . print_r($_SESSION, true) . "\n", FILE_APPEND);
 
 // ✅ OTTENERE LISTA UTENTI
-if ($method === "POST" && $action === "getUserTickets") {  // ✅ Ora è un POST
-    if (ob_get_length()) ob_clean();
+if ($method === "GET" && $action === "getUserTickets") {  
+    file_put_contents("debug_log.txt", "📌 Chiamata a getUserTickets ricevuta per user_id: " . ($_GET["user_id"] ?? "null") . "\n", FILE_APPEND);
 
-    $user_id = $data["user_id"] ?? null;  // ✅ Ora prendiamo `user_id` dal body JSON
+    $user_id = $_GET["user_id"] ?? null;
 
     if (!$user_id) {
         echo json_encode(["success" => false, "message" => "ID utente mancante"]);
-        exit;
+        exit();
     }
-
-    file_put_contents("debug_log.txt", "📌 Chiamata a getUserTickets ricevuta per user_id: $user_id\n", FILE_APPEND);
 
     try {
         $stmt = $pdo->prepare("
@@ -142,7 +132,6 @@ if ($method === "POST" && $action === "getUserTickets") {  // ✅ Ora è un POST
             WHERE t.client_id = :user_id
             ORDER BY t.ticketDate DESC
         ");
-
         $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
         $stmt->execute();
         $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -159,7 +148,32 @@ if ($method === "POST" && $action === "getUserTickets") {  // ✅ Ora è un POST
 
 
 
-// ✅ OTTENERE LE SEGNALAZIONI (TICKETS)
+// ✅ RECUPERA TUTTE LE CATEGORIE DI TICKET
+if ($method === "GET" && $action === "get_ticket_categories") {
+    file_put_contents("debug_log.txt", "📌 Richiesta get_ticket_categories ricevuta.\n", FILE_APPEND);
+    
+    try {
+        $stmt = $pdo->query("SELECT id, name FROM ticketcategories");
+        $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (!$categories) {
+            file_put_contents("debug_log.txt", "❌ Nessuna categoria trovata!\n", FILE_APPEND);
+            echo json_encode(["success" => false, "message" => "Nessuna categoria trovata"]);
+            exit();
+        }
+
+        file_put_contents("debug_log.txt", "✅ Categorie trovate: " . json_encode($categories) . "\n", FILE_APPEND);
+        echo json_encode($categories);
+        exit();
+    } catch (PDOException $e) {
+        file_put_contents("debug_log.txt", "❌ Errore SQL: " . $e->getMessage() . "\n", FILE_APPEND);
+        echo json_encode(["success" => false, "message" => "Errore nella query delle categorie"]);
+        exit();
+    }
+}
+
+
+
 // ✅ OTTENERE TUTTI I TICKET
 if ($method === "GET" && $action === "getMessages") {
     if (ob_get_length()) ob_clean();
@@ -289,30 +303,33 @@ if ($method === "POST" && $action === "updateTicketStatus") {
 
 // ✅ CREAZIONE NUOVA SEGNALAZIONE (TICKET)
 if ($method === "POST" && $action === "createTicket") {
-    file_put_contents("debug_log.txt", "📌 Creazione ticket ricevuta.\n", FILE_APPEND);
+    file_put_contents("debug_log.txt", "📌 Creazione ticket ricevuta. Dati: " . json_encode($data) . "\n", FILE_APPEND);
 
     $user_id = $data["user_id"] ?? null;
     $description = trim($data["description"] ?? '');
+    $category_id = $data["ticketCat_id"] ?? null;
 
-    if (!$user_id || !$description || strlen($description) < 10) {
-        file_put_contents("debug_log.txt", "❌ Errore: Dati mancanti o descrizione troppo corta\n", FILE_APPEND);
+    if (!$user_id || !$description || strlen($description) < 10 || !$category_id) {
+        file_put_contents("debug_log.txt", "❌ Errore: Dati mancanti o descrizione troppo corta. User ID: $user_id, Desc: '$description', Cat ID: $category_id\n", FILE_APPEND);
         echo json_encode(["success" => false, "message" => "Dati mancanti o descrizione troppo corta"]);
-        exit;
+        exit();
     }
 
     try {
         $stmt = $pdo->prepare("INSERT INTO tickets (ticketDate, description, client_id, ticketCat_id, status) 
                                VALUES (NOW(), ?, ?, ?, 'Aperto')");
-        $stmt->execute([$description, $user_id, 1]); // ✅ ticketCat_id = 1 (categoria predefinita)
+        $stmt->execute([$description, $user_id, $category_id]);
 
         file_put_contents("debug_log.txt", "✅ Ticket creato con successo per utente $user_id\n", FILE_APPEND);
         echo json_encode(["success" => true, "message" => "Segnalazione inviata con successo!"]);
     } catch (PDOException $e) {
         file_put_contents("debug_log.txt", "❌ ERRORE SQL: " . $e->getMessage() . "\n", FILE_APPEND);
-        echo json_encode(["success" => false, "message" => "Errore nella creazione del ticket", "error" => $e->getMessage()]);
+        echo json_encode(["success" => false, "message" => "Errore nella creazione del ticket"]);
     }
-    exit;
+    exit();
 }
+
+
 
 // ✅ MODIFICA TICKET
 if ($method === "PUT" && $action === "updateTicket") {  
