@@ -205,16 +205,16 @@ if ($method === "GET" && $action === "getMessages") {
 }
 
 
-// ✅ ASSEGNARE UN TICKET A UN ALTRO ADMIN (SuperAdmin only)
-if ($method === "POST" && $action === "assignTicket") {
+// ✅ ASSEGNARE UN TICKET A UN ADMIN (SuperAdmin only)
+if ($method === "POST" && $action === "assignTicketToAdmin") {
     file_put_contents("debug_log.txt", "📌 Assegnazione ticket ricevuta.\n", FILE_APPEND);
 
-    $ticket_id = $data["id"] ?? null;
+    $ticket_id = $data["ticket_id"] ?? null;
     $admin_id = $data["admin_id"] ?? null;
 
     if (!$ticket_id || !$admin_id) {
         echo json_encode(["success" => false, "message" => "Dati mancanti"]);
-        exit;
+        exit();
     }
 
     try {
@@ -225,8 +225,49 @@ if ($method === "POST" && $action === "assignTicket") {
     } catch (PDOException $e) {
         echo json_encode(["success" => false, "message" => "Errore nell'assegnazione del ticket"]);
     }
-    exit;
+    exit();
 }
+
+// ✅ Ottenere la lista di tutti gli Admin
+if ($method === "GET" && $action === "getAdmins") {
+    file_put_contents("debug_log.txt", "📌 Richiesta lista Admin ricevuta.\n", FILE_APPEND);
+
+    try {
+        $stmt = $pdo->query("SELECT id, name FROM users WHERE role = 'Admin'");
+        $admins = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        echo json_encode(["success" => true, "admins" => $admins], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    } catch (PDOException $e) {
+        file_put_contents("debug_log.txt", "❌ Errore SQL: " . $e->getMessage() . "\n", FILE_APPEND);
+        echo json_encode(["success" => false, "message" => "Errore nella query"]);
+    }
+    exit();
+}
+
+
+
+// ✅ Ottenere tutti i ticket aperti (SuperAdmin)
+if ($method === "GET" && $action === "getAllOpenTickets") {
+    file_put_contents("debug_log.txt", "📌 Richiesta di tutti i ticket aperti ricevuta.\n", FILE_APPEND);
+
+    try {
+        $stmt = $pdo->query("
+            SELECT t.id, t.description, t.status, u.name AS client_name 
+            FROM tickets t
+            JOIN users u ON t.client_id = u.id
+            WHERE t.status = 'Aperto' AND t.admin_id IS NULL
+            ORDER BY t.ticketDate DESC
+        ");
+        $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        echo json_encode(["success" => true, "tickets" => $tickets], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    } catch (PDOException $e) {
+        file_put_contents("debug_log.txt", "❌ Errore SQL: " . $e->getMessage() . "\n", FILE_APPEND);
+        echo json_encode(["success" => false, "message" => "Errore nella query"]);
+    }
+    exit();
+}
+
 
 // ✅ PRENDERE IN CARICO UN TICKET (Admin only)
 if ($method === "POST" && $action === "takeTicket") {

@@ -157,3 +157,94 @@
 📌 Metodo: GET | Azione ricevuta: "get_ticket_categories"
 📌 Richiesta get_ticket_categories ricevuta.
 ✅ Categorie trovate: [{"id":1,"name":"software"},{"id":2,"name":"hardware"},{"id":3,"name":"amministrazione"}]
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: "login"
+📌 Login ricevuto, elaborazione iniziata.
+📌 Sessione in message.php: Array
+(
+    [user_id] => 0
+    [user_role] => SuperAdmin
+)
+
+✅ Connessione al database riuscita.
+📌 Sessione in message.php: Array
+(
+    [user_id] => 0
+    [user_role] => SuperAdmin
+)
+
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: "login"
+📌 Login ricevuto, elaborazione iniziata.
+📌 Sessione in message.php: Array
+(
+    [user_id] => 0
+    [user_role] => SuperAdmin
+)
+
+✅ Connessione al database riuscita.
+📌 Sessione in message.php: Array
+(
+    [user_id] => 0
+    [user_role] => SuperAdmin
+)
+
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: "login"
+📌 Login ricevuto, elaborazione iniziata.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "getAllOpenTickets"
+📌 Richiesta di tutti i ticket aperti ricevuta.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "getAdmins"
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "getAllOpenTickets"
+📌 Richiesta di tutti i ticket aperti ricevuta.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "getAdmins"
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "getAllOpenTickets"
+📌 Richiesta di tutti i ticket aperti ricevuta.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "getAdmins"
+📌 Richiesta lista Admin ricevuta.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: POST | Azione ricevuta: "assignTicketToAdmin"
+📌 Assegnazione ticket ricevuta.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "getAllOpenTickets"
+📌 Richiesta di tutti i ticket aperti ricevuta.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "getAdmins"
+📌 Richiesta lista Admin ricevuta.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "getAllOpenTickets"
+📌 Richiesta di tutti i ticket aperti ricevuta.
+✅ Connessione al database riuscita.
+✅ Connessione al database riuscita.
+📌 Metodo: GET | Azione ricevuta: "getAdmins"
+📌 Richiesta lista Admin ricevuta.
